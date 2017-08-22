@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, ScrollView} from 'react-native';
+import {View, Image, ScrollView, StatusBar} from 'react-native';
 import {Text, Button, Card} from 'react-native-elements';
 import InputWithIcon from '../../components/InputWithIcon'
 import Tab from '../../components/Tab'
@@ -15,17 +15,27 @@ export default class Login extends React.Component {
 			activeMethod: 'CPF'
 		};
 		this.handlePressTab = this.handlePressTab.bind(this)
+		this.submitLogin = this.submitLogin.bind(this)
 	}
 	handlePressTab (value) {
 		this.setState({
 			activeMethod: value
 		})
 	}
+
+	submitLogin () {
+		this.props.navigation.navigate('Home')
+	}
 	render() {
 		const loginMethods = ['CPF', 'E-MAIL', 'CELULAR'];
-
+		console.log(StatusBar);
 		return (
 			<View style={{flex:1}}>
+				<StatusBar
+					translucent={true}
+					backgroundColor="transparent"
+					barStyle="light-content"
+				/>
 				<ScrollView contentContainerStyle={{flexGrow: 1}}>
 					<View style={styles.container}>
 						<Text style={styles.welcome} h4>Bem-vindo ao</Text>
@@ -42,7 +52,7 @@ export default class Login extends React.Component {
 							<InputWithIcon inputIcon="lock" placeholder="Senha" password={true}/>
 							<View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
 								<Button {...buttonStyles.transparent} title="ESQUECI A SENHA"/>
-								<Button {...buttonStyles.primary} title="ENTRAR"/>
+								<Button {...buttonStyles.primary} title="ENTRAR" onPress={this.submitLogin}/>
 							</View>
 						</Card>
 					</View>

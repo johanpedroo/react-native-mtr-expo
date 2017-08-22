@@ -74,7 +74,7 @@ export default {
 	},
 	moreAbout: {
 		buttonStyle: {
-			backgroundColor: 'transparent',
+			backgroundColor: '#fff',
 			marginLeft: 0,
 			marginRight: 0,
 			height: 50,
