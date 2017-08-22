@@ -19,20 +19,25 @@ const button = {
 };
 
 
-export default button
-
-export const transparent = {
-	...button,
-	buttonStyle: {
-		backgroundColor: 'transparent',
+export default {
+	transparent: {
+		...button,
+		buttonStyle: {
+			...button.buttonStyle,
+			backgroundColor: 'transparent',
+		},
+		textStyle: {
+			...button.textStyle,
+			color: theme.brandColor
+		}
 	},
-	textStyle: {
-		color: theme.brandColor
-	},
-	containerViewStyle: {
+	primary: {
+		...button,
+		buttonStyle: {
+			...button.buttonStyle,
+			backgroundColor: theme.primary,
+		}
 
 	}
-};
-export const primary = {
-	backgroundColor: theme.primary
-};
+}
+

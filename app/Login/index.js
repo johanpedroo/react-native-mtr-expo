@@ -41,8 +41,8 @@ export default class Login extends React.Component {
 							<InputWithIcon inputIcon="user-circle" placeholder="Documento"/>
 							<InputWithIcon inputIcon="lock" placeholder="Senha" password={true}/>
 							<View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-								<Button {...buttonStyles} color={theme.brandColor} backgroundColor="transparent" title="ESQUECI A SENHA"/>
-								<Button {...buttonStyles} color="white" backgroundColor={theme.primary} title="ENTRAR"/>
+								<Button {...buttonStyles.transparent} title="ESQUECI A SENHA"/>
+								<Button {...buttonStyles.primary} title="ENTRAR"/>
 							</View>
 						</Card>
 					</View>

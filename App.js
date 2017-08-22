@@ -1,10 +1,8 @@
 import React from 'react'
 import Login from './app/Login'
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-	render() {
-		return (
-			<Login/>
-		)
-	}
-}
+
+export default StackNavigator({
+	Login: {screen: Login, navigationOptions: { header: false } }
+});
