@@ -28,36 +28,52 @@ export default class Login extends React.Component {
 	}
 	render() {
 		const loginMethods = ['CPF', 'E-MAIL', 'CELULAR'];
-		console.log(StatusBar);
 		return (
 			<View style={{flex:1}}>
-				<StatusBar
-					translucent={true}
-					backgroundColor="transparent"
-					barStyle="light-content"
-				/>
 				<ScrollView contentContainerStyle={{flexGrow: 1}}>
+
 					<View style={styles.container}>
+
 						<Text style={styles.welcome} h4>Bem-vindo ao</Text>
+
 						<Image style={styles.logo} source={require('../../assets/logo.png')}/>
+
 						<Text style={styles.askAccount}>Ainda não tem sua conta?</Text>
+
 						<Button title="CADASTRE-SE AGORA" {...styles.buttonSignUp} onPress={() => console.log('')}/>
-						<Card {...styles.loginMethods.view}>
+
+						<Card {...styles.loginMethods}>
+
 							<View style={{flexDirection: 'row', justifyContent:'flex-start',height: 55}}>
+
 								{loginMethods.map((value, i) => {
+
 									return <Tab key={i} active={this.state.activeMethod} value={value} onPress={() => this.handlePressTab(value)}/>
+
 								})}
+
 							</View>
+
 							<InputWithIcon inputIcon="user-circle" placeholder="Documento"/>
+
 							<InputWithIcon inputIcon="lock" placeholder="Senha" password={true}/>
+
 							<View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+
 								<Button {...buttonStyles.transparent} title="ESQUECI A SENHA"/>
+
 								<Button {...buttonStyles.primary} title="ENTRAR" onPress={this.submitLogin}/>
+
 							</View>
+
 						</Card>
+
 					</View>
+
 				</ScrollView>
+
 				<Button {...styles.moreAbout} title="SAIBA MAIS"/>
+
 			</View>
 		);
 	}

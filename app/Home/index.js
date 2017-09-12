@@ -1,21 +1,33 @@
 import React, {Component} from 'react';
 import {View, Image, ScrollView} from 'react-native';
-import {Text, Button, Header} from 'react-native-elements';
+import {Text, Header, Button} from 'react-native-elements';
 import HeaderProfile from '../../components/HeaderProfile'
+import HeaderBalance from '../../components/HeaderBalance'
+import TabsMenu from '../../components/TabsMenu'
+import buttonStyle from '../../assets/button.style'
+import styles from './style'
 export default class Home extends Component {
 	constructor (props) {
 		super(props)
 	}
 
-
 	render () {
 		return (
 			<View style={{flex: 1}}>
-				<Header backgroundColor="#e3e3e3" leftComponent={<HeaderProfile/>} outerContainerStyles={{elevation: 5, height: 80}}/>
-				<ScrollView contentContainerStyle={{flexGrow: 1}}>
-					<ScrollView contentContainerStyle={{flexGrow: 1}}>
+				<Header
+					statusBarProps={{ barStyle: 'light-content' }}
+					leftComponent={<HeaderProfile/>}
+					rightComponent={<HeaderBalance onPress={() => console.log('aaaa')}/>}
+					{...styles.header}
+					icon={{name: 'arrow-down', type: 'font-awesome'}}/>
+				<View style={{marginTop: 80, flex: 1}}>
+					<ScrollView style={{flexGrow: 1}}>
+						<View>
+							<Button {...buttonStyle.transparent} title="Ler Qr code"/>
+						</View>
 					</ScrollView>
-				</ScrollView>
+				</View>
+				<TabsMenu/>
 			</View>
 		)
 	}

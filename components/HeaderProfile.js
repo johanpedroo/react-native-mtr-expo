@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { View } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
 import headerProfileStyle from '../assets/headerProfile.style';
